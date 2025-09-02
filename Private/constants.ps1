@@ -1,0 +1,1 @@
+$script:HABITICA_API_URL = "https://habitica.com/api/v3/"
