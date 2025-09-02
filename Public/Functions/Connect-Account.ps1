@@ -1,4 +1,4 @@
-
+﻿
 function Connect-Account {
     param(
         [Parameter(Mandatory = $true, HelpMessage = "The x-client attribute. Refer to [Wiki](https://github.com/HabitRPG/habitica/wiki/API-Usage-Guidelines#x-client-header)")][string]$Client,
@@ -25,9 +25,9 @@ function Connect-Account {
         $response = (invoke-api -Uri "/user/auth/local/login" -Method POST -Body $Body -IgnoreVault)
 
         Write-Output "You will be requested a password for securing the authentication data for later usage on the first time."
-        Set-Secret -Name "HABITICA_USER_ID" -Vault "PSHabitica" -Secret $response.data.id 
+        Set-Secret -Name "HABITICA_USER_ID" -Vault "PSHabitica" -Secret $response.data.id
         Set-Secret -Name "HABITICA_API_TOKEN" -Vault "PSHabitica" -Secret $response.data.apiToken
-        Set-Secret -Name "HABITICA_CLIENT" -Vault "PSHabitica" -Secret $Client 
+        Set-Secret -Name "HABITICA_CLIENT" -Vault "PSHabitica" -Secret $Client
         Write-Output "Welcome to PSHabitica $($response.data.username)!"
     }
 }
