@@ -32,3 +32,6 @@ Locale: pt-br
 ### [Set-Tag](Set-Tag.md)
 {{ Fill in the Description }}
 
+### [Set-Task](Set-Task.md)
+{{ Fill in the Description }}
+

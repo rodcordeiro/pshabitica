@@ -181,7 +181,7 @@ function New-Task {
             $tagIds = @()
             $allTags = (Invoke-Api -Uri "/tags" -Method GET).data
             foreach ($tag in $Tags) {
-                $match = $allTags | Where-Object { $_.id -eq $tag -or $_.name -eq $tag }
+                $match = $allTags | Where-Object { $_.id -ieq $tag -or $_.name -ieq $tag }
                 if ($match) {
                     $tagIds += $match.id
                 }
