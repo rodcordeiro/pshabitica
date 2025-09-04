@@ -54,7 +54,7 @@ Uses Windows Credential Manager prompt to obtain the SecureString password.
 
 ### -Client
 The x-client attribute.
-Required by Habitica API. 
+Required by Habitica API.
 Format: \<username\>-\<appname\>.
 Refer to: https://github.com/HabitRPG/habitica/wiki/API-Usage-Guidelines#x-client-header
 
@@ -109,8 +109,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 ## OUTPUTS
 
 ## NOTES
-Author: Rodrigo Cordeiro  
-Module: PSHabitica  
+Author: Rodrigo Cordeiro
+Module: PSHabitica
 This function registers the SecretVault "PSHabitica" automatically if not present.
 
 ## RELATED LINKS

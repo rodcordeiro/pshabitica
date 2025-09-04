@@ -94,13 +94,19 @@ function New-Task {
         [Parameter(Mandatory, ParameterSetName = 'Habit', ValueFromPipelineByPropertyName)]
         [string]$Text,
 
-        [Parameter(ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Todo', ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Daily', ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Habit', ValueFromPipelineByPropertyName)]
         [string]$Alias,
 
-        [Parameter(ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Todo', ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Daily', ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Habit', ValueFromPipelineByPropertyName)]
         [string]$Note,
 
-        [Parameter(ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Todo', ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Daily', ValueFromPipelineByPropertyName)]
+        [Parameter(Mandatory = $false, ParameterSetName = 'Habit', ValueFromPipelineByPropertyName)]
         [string[]]$Tags,
 
         [Parameter(ValueFromPipelineByPropertyName)]
@@ -171,7 +177,20 @@ function New-Task {
 
         if ($Alias) { $body.alias = $Alias }
         if ($Note) { $body.notes = $Note }
-        if ($Tags) { $body.tags = $Tags }
+        if ($Tags) {
+            $tagIds = @()
+            $allTags = (Invoke-Api -Uri "/tags" -Method GET).data
+            foreach ($tag in $Tags) {
+                $match = $allTags | Where-Object { $_.id -ieq $tag -or $_.name -ieq $tag }
+                if ($match) {
+                    $tagIds += $match.id
+                }
+                else {
+                    Write-Warning "Tag '$tag' not found. Skipping."
+                }
+            }
+            if ($tagIds) { $body.tags = $tagIds }
+        }
         if ($Checklist) { $body.checklist = $Checklist | ForEach-Object { @{ text = $_ } } }
 
         # --- Todo

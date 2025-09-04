@@ -77,7 +77,7 @@ Valid values are: "todo", "daily", "habit".
 ```yaml
 Type: String
 Parameter Sets: (All)
-Aliases: Title
+Aliases:
 
 Required: True
 Position: Named
