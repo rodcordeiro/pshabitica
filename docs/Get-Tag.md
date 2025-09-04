@@ -5,28 +5,43 @@ online version:
 schema: 2.0.0
 ---
 
-# Get-User
+# Get-Tag
 
 ## SYNOPSIS
-{{ Fill in the Synopsis }}
+Retrieves the current user's tags from Habitica.
 
 ## SYNTAX
 
 ```
-Get-User [<CommonParameters>]
+Get-Tag [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-{{ Fill in the Description }}
+Calls the Habitica API to return the list of tags defined by the user.
+Tags can be used to group tasks like todos, dailies, or habits.
 
 ## EXAMPLES
 
-### Example 1
-```powershell
-PS C:\> {{ Add example code here }}
+### EXEMPLO 1
+```
+Get-Tag
 ```
 
-{{ Add example description here }}
+Returns all tags for the authenticated Habitica user.
+
+### EXEMPLO 2
+```
+Get-Tag | Where-Object { $_.name -eq "Work" }
+```
+
+Returns the "Work" tag object.
+
+### EXEMPLO 3
+```
+(Get-Tag).name
+```
+
+Lists the names of all tags.
 
 ## PARAMETERS
 
@@ -35,11 +50,8 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Nenhum
-
 ## OUTPUTS
 
-### System.Object
 ## NOTES
 
 ## RELATED LINKS

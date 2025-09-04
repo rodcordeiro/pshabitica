@@ -14,12 +14,21 @@ Locale: pt-br
 ### [Connect-Account](Connect-Account.md)
 {{ Fill in the Description }}
 
-### [Get-Hello](Get-Hello.md)
+### [Get-Tag](Get-Tag.md)
 {{ Fill in the Description }}
 
 ### [Get-User](Get-User.md)
 {{ Fill in the Description }}
 
+### [New-Tag](New-Tag.md)
+{{ Fill in the Description }}
+
 ### [New-Task](New-Task.md)
+{{ Fill in the Description }}
+
+### [Remove-Tag](Remove-Tag.md)
+{{ Fill in the Description }}
+
+### [Set-Tag](Set-Tag.md)
 {{ Fill in the Description }}
 
