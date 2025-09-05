@@ -175,7 +175,9 @@ function New-Task {
             "attribute" = $Attribute
         }
 
-        if ($Alias) { $body.alias = $Alias }
+        if ($Alias) { $body.alias = $Alias } else {
+            $body.alias = (Get-Slug $Text)
+        }
         if ($Note) { $body.notes = $Note }
         if ($Tags) {
             $tagIds = @()

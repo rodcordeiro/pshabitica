@@ -1,10 +1,10 @@
-function Set-Task {
+﻿function Set-Task {
     <#
     .SYNOPSIS
         Updates an existing Habitica task.
 
     .DESCRIPTION
-        Calls the Habitica API to update a task by ID. 
+        Calls the Habitica API to update a task by ID.
         Parameters are grouped into sets depending on the task type (`todo`, `daily`, or `habit`).
 
     .PARAMETER TaskId
@@ -100,7 +100,7 @@ function Set-Task {
     )
 
     begin {
-       
+
     }
 
     process {
