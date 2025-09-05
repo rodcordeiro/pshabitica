@@ -1,5 +1,4 @@
-function Get-Slug {
-    <#
+<#
     .SYNOPSIS
         Generates a simple, readable slug (alias) from input text.
 
@@ -25,6 +24,7 @@ function Get-Slug {
         New-Slug "Daily Check In" -MaxLen 12
         # daily-check
     #>
+function Get-Slug {
     param(
         [Parameter(Mandatory = $true)]
         [string]$InputString,
